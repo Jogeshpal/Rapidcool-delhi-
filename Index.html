@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RapidCool Delhi - AC Service at Home</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f8f9fc;
+            color: #1e2a3e;
+        }
+
+        .navbar {
+            background: #ffffff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0b63e5, #00a3ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.75rem;
+            color: #4b5563;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .location-selector {
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .location-selector:hover {
+            background: #e2e8f0;
+        }
+
+        .location-selector i {
+            color: #0b63e5;
+        }
+
+        .btn-login {
+            background: transparent;
+            border: 1.5px solid #0b63e5;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #0b63e5;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn-login:hover {
+            background: #0b63e5;
+            color: #ffffff;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #eef4ff, #ffffff);
+            padding: 2.5rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .hero span {
+            color: #0b63e5;
+        }
+
+        .hero-sub {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .search-box {
+            margin-top: 1.8rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #ffffff;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0.4rem 0.4rem 0.4rem 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .search-box i {
+            color: #94a3b8;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0.9rem 0.8rem;
+            font-size: 1rem;
+            outline: none;
+            background: transparent;
+        }
+
+        .search-box button {
+            background: #0b63e5;
+            border: none;
+            color: #ffffff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2rem 2rem 0.75rem 2rem;
+        }
+
+        .section-sub {
+            margin: 0 2rem 1rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            padding: 0 2rem 2rem 2rem;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease;
+            border: 1px solid #edf2f7;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img {
+            background: #eef2ff;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: #0b63e5;
+        }
+
+        .card-info {
+            padding: 1.2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .card-info p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .price {
+            color: #0b63e5;
+            font-weight: 700;
+            margin: 0.7rem 0 0.4rem;
+            font-size: 1rem;
+        }
+
+        .book-btn {
+            background: #0b63e5;
+            color: #ffffff;
+            border: none;
+            padding: 0.6rem 1rem;
+            width: 100%;
+            border-radius: 40px;
+            font-weight: 600;
+            margin-top: 0.7rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .book-btn:hover {
+            background: #004ecc;
+        }
+
+        /* General Modal Styles */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            max-width: 480px;
+            width: 90%;
+            border-radius: 32px;
+            padding: 1.8rem 1.6rem 1.4rem;
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.4rem;
+        }
+
+        .modal-sub {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .modal-content input,
+        .modal-content select,
+        .modal-content textarea {
+            width: 100%;
+            padding: 0.8rem 0.9rem;
+            margin: 0.4rem 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .modal-content textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .modal-content input:focus,
+        .modal-content select:focus,
+        .modal-content textarea:focus {
+            border-color: #0b63e5;
+            box-shadow: 0 0 0 1px rgba(11, 99, 229, 0.15);
+        }
+
+        .confirm-btn {
+            background: #0b63e5;
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 40px;
+            font-weight: 600;
+            margin-top: 0.9rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .confirm-btn:hover {
+            background: #004ecc;
+        }
+
+        .small-note {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 0.25rem;
+        }
+
+        /* Location Modal specific */
+        .location-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.7rem;
+            margin-top: 0.75rem;
+        }
+
+        .location-item {
+            background: #f1f5f9;
+            padding: 0.7rem;
+            text-align: center;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .location-item:hover {
+            background: #0b63e5;
+            color: #ffffff;
+        }
+
+        .location-item.coming-soon {
+            background: #fee2e2;
+            color: #991b1b;
+            cursor: not-allowed;
+            opacity: 0.75;
+        }
+
+        .location-item.coming-soon:hover {
+            background: #fee2e2;
+            color: #991b1b;
+            transform: none;
+        }
+
+        .coming-badge {
+            font-size: 0.7rem;
+            margin-left: 4px;
+            font-weight: 400;
+        }
+
+        /* Coming Soon Modal */
+        .comingsoon-content {
+            background: linear-gradient(135deg, #ffffff, #f8f9ff);
+            max-width: 450px;
+            width: 90%;
+            border-radius: 40px;
+            padding: 2rem 1.8rem 1.6rem;
+            text-align: center;
+            position: relative;
+            border: 2px solid #0b63e5;
+            animation: fadeInUp 0.35s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-box {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 24px;
+            margin: 15px 0;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-btn,
+        .call-btn {
+            border: none;
+            padding: 0.9rem 1.6rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0.5rem 0.4rem 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: #ffffff;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.02);
+        }
+
+        .call-btn {
+            background: #0b63e5;
+            color: #ffffff;
+        }
+
+        .call-btn:hover {
+            background: #004ecc;
+            transform: scale(1.02);
+        }
+
+        /* Toast */
+        .toast-msg {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #111827;
+            color: #ffffff;
+            padding: 11px 22px;
+            border-radius: 999px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            z-index: 1200;
+            display: none;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e6;
+            padding: 2rem 1.5rem 2.2rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        footer p + p {
+            margin-top: 6px;
+        }
+
+        @media (max-width: 640px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+
+            .location-list {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                padding: 0 1.1rem 2rem;
+            }
+
+            .hero {
+                padding: 2rem 1.1rem 1.6rem;
+            }
+
+            .section-title,
+            .section-sub {
+                margin-left: 1.1rem;
+                margin-right: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo">
+        <h1>RapidCool Delhi</h1>
+        <p>❄️ AC Experts | Same Day Service</p>
+    </div>
+    <div class="nav-right">
+        <div class="location-selector" id="locationBtn">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="selectedLocation">Select Location</span>
+            <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i>
+        </div>
+        <button class="btn-login" id="loginBtn">
+            <i class="fas fa-user-circle"></i> Login / Signup
+        </button>
+    </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <h2>Professional <span>AC Services</span> at Home<br>in Delhi NCR</h2>
+    <p class="hero-sub">Same-day AC repair, installation & gas refill with trusted technicians in your area.</p>
+    <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search for AC Repair, Gas Refill, Installation..." id="searchInput">
+        <button id="searchBtn">Search</button>
+    </div>
+</div>
+
+<!-- Services -->
+<h2 class="section-title">❄️ AC Services We Offer</h2>
+<p class="section-sub">Transparent pricing, genuine spares, and complete service reports shared digitally with every customer.</p>
+
+<div class="services-grid" id="servicesContainer">
+    <!-- Injected via JS -->
+</div>
+
+<!-- Location Modal -->
+<div id="locationModal" class="modal-backdrop">
+    <div class="modal-content">
+        <span class="close-modal" data-close="locationModal">&times;</span>
+        <div class="modal-header">
+            <i class="fas fa-map-marker-alt" style="color:#0b63e5;"></i>
+            <h3>Select your area in Delhi</h3>
+        </div>
+        <p class="modal-sub">
+            Green areas are live for booking. Red areas are coming soon.
+        </p>
+        <div class="location-list" id="locationList"></div>
+        <p style="margin-top: 0.8rem; font-size: 0.8rem; color: #64748b; text-align: center;">
+            <i class="fas fa-bolt"></i> Live Service: Ashok Vihar, Shalimar Bagh, Azadpur, Pitampura, Burari & more.
+        </p>
+    </div>
+</div>
+
+<!-- Coming Soon Modal -->
+<div id="comingSoonModal" class="modal-backdrop">
+    <div class="comingsoon-content" id="comingSoonContent">
+        <!-- Dynamic content from JS -->
+    </div>
+</div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal-backdrop">
+    <div class="modal-content">
+        <span class="close-modal" data-close="bookingModal">&times;</span>
+        <div class="modal-header">
+            <i class="fas fa-clipboard-list" style="color:#0b63e5;"></i>
+            <h3>Book AC Service</h3>
+        </div>
+        <p class="modal-sub">
+            Technician details & live tracking link will be shared by SMS / WhatsApp before the visit.
+        </p>
+
+        <p id="modalServiceName" style="font-weight:600; margin-bottom:8px;"></p>
+
+        <input type="text" id="customerName" placeholder="Full Name">
+        <input type="tel" id="customerPhone" placeholder="Mobile Number (10 digits)">
+        <input type="text" id="customerAddress" placeholder="Full Address with Landmark">
+
+        <select id="bookingSlot">
+            <option value="Today (2-5 PM)">Today (2-5 PM)</option>
+            <option value="Today (5-8 PM)">Today (5-8 PM)</option>
+            <option value="Tomorrow (10 AM-1 PM)">Tomorrow (10 AM-1 PM)</option>
+            <option value="Tomorrow (3-6 PM)">Tomorrow (3-6 PM)</option>
+        </select>
+
+        <p class="small-note">
+            By confirming, you agree to get booking alerts on SMS / WhatsApp from RapidCool Delhi.
+        </p>
+
+        <button class="confirm-btn" id="confirmBookingBtn">
+            Confirm Booking
+        </button>
+    </div>
+</div>
+
+<!-- Job Start (OTP) Modal -->
+<div id="jobStartModal" class="modal-backdrop">
+    <div class="modal-content">
+        <span class="close-modal" data-close="jobStartModal">&times;</span>
+        <div class="modal-header">
+            <i class="fas fa-play-circle" style="color:#10b981;"></i>
+            <h3>Start Job at Customer Location</h3>
+        </div>
+        <p class="modal-sub">
+            Technician ne customer ke location par pahunchkar customer ko 4-digit OTP batane ko bolna hai.
+        </p>
+
+        <p style="font-size:0.9rem; margin-bottom:6px;">
+            <strong>Customer Name:</strong> <span id="jobCustomerName"></span><br>
+            <strong>Service:</strong> <span id="jobServiceName"></span><br>
+            <strong>Location:</strong> <span id="jobLocation"></span>
+        </p>
+
+        <input type="text" id="jobOtpInput" maxlength="4"
+               placeholder="Enter 4-digit OTP from customer">
+        <p class="small-note">
+            OTP wrong hua to job start nahi hogi. Security ke liye OTP customer ko SMS/WhatsApp par gaya hai.
+        </p>
+
+        <button class="confirm-btn" id="startJobBtn">
+            Start Job
+        </button>
+    </div>
+</div>
+
+<!-- Job Completion / Bill Modal -->
+<div id="jobCompleteModal" class="modal-backdrop">
+    <div class="modal-content">
+        <span class="close-modal" data-close="jobCompleteModal">&times;</span>
+        <div class="modal-header">
+            <i class="fas fa-file-invoice" style="color:#0b63e5;"></i>
+            <h3>Complete Job & Generate Bill</h3>
+        </div>
+        <p class="modal-sub">
+            Technician yaha par actual kaam aur parts mention karega. Ye details customer ko bill ke saath jayengi.
+        </p>
+
+        <p style="font-size:0.9rem; margin-bottom:6px;">
+            <strong>Customer:</strong> <span id="billCustomerName"></span><br>
+            <strong>Service:</strong> <span id="billServiceName"></span>
+        </p>
+
+        <textarea id="billWorkDetails"
+                  placeholder="Example: Indoor coil cleaning, gas top-up 250g, PCB check, blower cleaning, etc."></textarea>
+
+        <input type="number" id="billAmount"
+               placeholder="Total Amount (₹)">
+        <input type="text" id="billPaymentMode"
+               placeholder="Payment Mode (Cash / UPI / Card)">
+
+        <p class="small-note">
+            Bill customer ko SMS/WhatsApp/Email se share kiya ja sakta hai. Abhi ye summary front-end par show hogi.
+        </p>
+
+        <button class="confirm-btn" id="completeJobBtn">
+            Complete Job & Share Bill
+        </button>
+    </div>
+</div>
+
+<!-- Toast -->
+<div id="toastMsg" class="toast-msg"></div>
+
+<footer>
+    <p>RapidCool Delhi - Trusted AC Service in Delhi | 100% Professional Technicians</p>
+    <p>📍 Currently Serving: Ashok Vihar, Shalimar Bagh, Azadpur, Pitampura, Burari, Sant Nagar, Wazirabad, Sangam Vihar, Karol Bagh, Rohini, Timarpur, Majlis Park</p>
+    <p>📞 Helpline: +91 8445595729 | 📱 WhatsApp: +91 8445595729</p>
+</footer>
+
+<script>
+    // AVAILABLE & COMING-SOON AREAS
+    const availableLocations = [
+        "Ashok Vihar", "Shalimar Bagh", "Azadpur", "Pitampura", "Burari",
+        "Sant Nagar", "Wazirabad", "Sangam Vihar", "Karol Bagh", "Rohini",
+        "Timarpur", "Majlis Park"
+    ];
+
+    const otherLocations = [
+        "Dwarka", "Lajpat Nagar", "Rajouri Garden", "Janakpuri", "Vasant Kunj",
+        "Saket", "Malviya Nagar", "Chandni Chowk", "Connaught Place", "Model Town",
+        "Kamla Nagar", "Noida", "Gurgaon", "Greater Kailash", "Hauz Khas",
+        "Nehru Place", "Okhla", "Mayur Vihar", "Vikas Puri", "Paschim Vihar"
+    ];
+
+    // SERVICE CARDS DATA
+    const servicesData = [
+        {id: 1, name: "AC Repair (All Types)", icon: "fas fa-wrench", price: "₹399 onwards", desc: "Diagnosis & repair by expert technicians."},
+        {id: 2, name: "AC Gas Refill", icon: "fas fa-fan", price: "₹1299 onwards", desc: "R22 / R32 / R410a gas with leak check."},
+        {id: 3, name: "AC Installation", icon: "fas fa-tools", price: "₹999 onwards", desc: "Window & Split AC installation with vacuuming."},
+        {id: 4, name: "AC Dismantle & Relocate", icon: "fas fa-truck", price: "₹1499 onwards", desc: "Safe dismantling & shifting with re-installation."},
+        {id: 5, name: "AC Deep Cleaning", icon: "fas fa-broom", price: "₹699 onwards", desc: "Anti-bacterial jet wash & coil cleaning."},
+        {id: 6, name: "AC Not Cooling", icon: "fas fa-temperature-low", price: "₹449 onwards", desc: "Low cooling, ice formation & airflow issues."},
+        {id: 7, name: "AC Outdoor Unit Repair", icon: "fas fa-microchip", price: "₹599 onwards", desc: "Compressor, fan, capacitor & PCB repair."},
+        {id: 8, name: "Window AC Service", icon: "fas fa-window-maximize", price: "₹349 onwards", desc: "Complete window AC cleaning & check-up."}
+    ];
+
+    // JOB / BOOKING STATE (IN-MEMORY DEMO)
+    let selectedService = null;
+    let currentLocation = "";
+    let currentLocationIsAvailable = false;
+    let lastBooking = null;   // {name, phone, address, slot, serviceName, location, otp}
+
+    // COMING SOON CREATIVE MESSAGES
+    const comingSoonMessages = [
+        {
+            title: "We're Expanding! 🚀",
+            mainMessage: "We heard you!",
+            subMessage: "RapidCool team is working to launch services in your area super soon.",
+            waitTime: "2–3 weeks",
+            funFact: "Special technicians are being onboarded just for your location."
+        },
+        {
+            title: "Chill Mode: Activating ❄️",
+            mainMessage: "Your area is next on our radar!",
+            subMessage: "Network & partners are getting finalised to serve you faster.",
+            waitTime: "around 15 days",
+            funFact: "Early users get launch offers & priority slots."
+        },
+        {
+            title: "We're On Our Way! 🏃‍♂️",
+            mainMessage: "Cool comfort is coming soon!",
+            subMessage: "Your neighbourhood will be covered in the next phase of expansion.",
+            waitTime: "very soon",
+            funFact: "First 100 customers get free AC health checkup."
+        }
+    ];
+
+    // Utility: show / hide modals
+    function openModal(id) {
+        const el = document.getElementById(id);
+        if (el) el.style.display = "flex";
+    }
+
+    function closeModal(id) {
+        const el = document.getElementById(id);
+        if (el) el.style.display = "none";
+    }
+
+    // Toast Utility
+    function showToast(message, duration = 2500) {
+        const toast = document.getElementById("toastMsg");
+        toast.textContent = message;
+        toast.style.display = "inline-flex";
+        setTimeout(() => {
+            toast.style.display = "none";
+        }, duration);
+    }
+
+    // COMING SOON MODAL RENDER
+    function getRandomComingSoonMessage() {
+        const randomIndex = Math.floor(Math.random() * comingSoonMessages.length);
+        return comingSoonMessages[randomIndex];
+    }
+
+    function renderComingSoonModal(areaName) {
+        const creativeMsg = getRandomComingSoonMessage();
+        const modalContent = document.getElementById("comingSoonContent");
+
+        modalContent.innerHTML = `
+            <span class="close-modal" data-close="comingSoonModal">&times;</span>
+            <i class="fas fa-snowflake" style="font-size: 3.5rem; color: #0b63e5;"></i>
+            <h2 style="margin-top: 0.75rem; font-size: 1.7rem;">${creativeMsg.title}</h2>
+            <div class="message-box">
+                <p style="font-size: 1rem; font-weight: 600;">✨ ${creativeMsg.mainMessage} ✨</p>
+                <p style="margin-top:6px;">📍 <strong>${areaName}</strong> — ${creativeMsg.subMessage}</p>
+                <p style="margin-top: 10px;">⏰ <strong>Expected launch: ${creativeMsg.waitTime}</strong></p>
+                <p style="margin-top: 8px; font-size: 0.85rem;">🎉 ${creativeMsg.funFact}</p>
+            </div>
+            <p style="font-size:0.9rem; color:#4b5563; margin-bottom:10px;">
+                Want to be notified on launch? Ping us on WhatsApp or call our helpline.
+            </p>
+            <button class="whatsapp-btn" onclick="window.open('https://wa.me/918445595729','_blank')">
+                <i class="fab fa-whatsapp"></i> Notify me on WhatsApp
+            </button>
+            <button class="call-btn" onclick="window.location.href='tel:+918445595729'">
+                <i class="fas fa-phone-alt"></i> Call Support
+            </button>
+        `;
+
+        openModal("comingSoonModal");
+    }
+
+    // RENDER SERVICES
+    function renderServices() {
+        const container = document.getElementById("servicesContainer");
+        container.innerHTML = "";
+
+        servicesData.forEach(service => {
+            const card = document.createElement("div");
+            card.className = "service-card";
+            card.innerHTML = `
+                <div class="card-img">
+                    <i class="${service.icon}"></i>
+                </div>
+                <div class="card-info">
+                    <h3>${service.name}</h3>
+                    <p>${service.desc}</p>
+                    <p class="price">${service.price}</p>
+                    <button class="book-btn" data-service-id="${service.id}">Book Now</button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        // Attach click handlers
+        container.addEventListener("click", (e) => {
+            if (e.target.classList.contains("book-btn")) {
+                const id = parseInt(e.target.getAttribute("data-service-id"), 10);
+                const svc = servicesData.find(s => s.id === id);
+                if (!svc) return;
+
+                if (!currentLocationIsAvailable) {
+                    showToast("Please select a live service area first.");
+                    openModal("locationModal");
+                    return;
+                }
+
+                selectedService = svc;
+                document.getElementById("modalServiceName").textContent =
+                    `Selected Service: ${svc.name}`;
+                openModal("bookingModal");
+            }
+        });
+    }
+
+    // RENDER LOCATIONS
+    function renderLocations() {
+        const list = document.getElementById("locationList");
+        list.innerHTML = "";
+
+        availableLocations.forEach(loc => {
+            const div = document.createElement("div");
+            div.className = "location-item";
+            div.textContent = loc;
+            div.dataset.location = loc;
+            list.appendChild(div);
+        });
+
+        otherLocations.forEach(loc => {
+            const div = document.createElement("div");
+            div.className = "location-item coming-soon";
+            div.innerHTML = `${loc} <span class="coming-badge">Coming soon</span>`;
+            div.dataset.location = loc;
+            list.appendChild(div);
+        });
+
+        list.addEventListener("click", (e) => {
+            const item = e.target.closest(".location-item");
+            if (!item) return;
+
+            const areaName = item.dataset.location;
+            if (!areaName) return;
+
+            if (item.classList.contains("coming-soon")) {
+                currentLocationIsAvailable = false;
+                currentLocation = areaName;
+                document.getElementById("selectedLocation").textContent = areaName;
+                closeModal("locationModal");
+                renderComingSoonModal(areaName);
+                return;
+            }
+
+            currentLocationIsAvailable = true;
+            currentLocation = areaName;
+            document.getElementById("selectedLocation").textContent = areaName;
+            closeModal("locationModal");
+            showToast(`Service available in ${areaName}.`);
+        });
+    }
+
+    // GENERATE SIMPLE 4-DIGIT OTP (DEMO)
+    function generateOtp() {
+        return Math.floor(1000 + Math.random() * 9000).toString();
+    }
+
+    // HANDLE BOOKING CONFIRM
+    function handleBookingConfirm() {
+        const name = document.getElementById("customerName").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
+        const address = document.getElementById("customerAddress").value.trim();
+        const slot = document.getElementById("bookingSlot").value;
+
+        if (!selectedService) {
+            showToast("Please select a service again.");
+            return;
+        }
+        if (!name || !phone || !address) {
+            showToast("Please fill all booking details.");
+            return;
+        }
+        if (!/^d{10}$/.test(phone)) {
+            showToast("Enter a valid 10-digit mobile number.");
+            return;
+        }
+        if (!currentLocationIsAvailable) {
+            showToast("Selected area is not live yet.");
+            return;
+        }
+
+        const otp = generateOtp();
+
+        lastBooking = {
+            name,
+            phone,
+            address,
+            slot,
+            serviceName: selectedService.name,
+            location: currentLocation,
+            otp,
+            jobStarted: false,
+            jobCompleted: false
+        };
+
+        // Yaha tum actual SMS / WhatsApp API call laga sakte ho
+        console.log("Generated OTP for demo (send to customer):", otp);
+
+        closeModal("bookingModal");
+        showToast("Booking confirmed! OTP sent to customer for job start.", 3000);
+
+        // Technician app / panel ke liye job-start modal kholne ka demo:
+        document.getElementById("jobCustomerName").textContent = lastBooking.name;
+        document.getElementById("jobServiceName").textContent = lastBooking.serviceName;
+        document.getElementById("jobLocation").textContent = `${lastBooking.location} | Slot: ${lastBooking.slot}`;
+        openModal("jobStartModal");
+    }
+
+    // HANDLE JOB START VIA OTP
+    function handleJobStart() {
+        if (!lastBooking) {
+            showToast("No active booking found.");
+            return;
+        }
+        const inputOtp = document.getElementById("jobOtpInput").value.trim();
+
+        if (inputOtp.length !== 4 || !/^d{4}$/.test(inputOtp)) {
+            showToast("Enter valid 4-digit OTP.");
+            return;
+        }
+
+        if (inputOtp !== lastBooking.otp) {
+            showToast("Wrong OTP. Job cannot be started.");
+            return;
+        }
+
+        lastBooking.jobStarted = true;
+        closeModal("jobStartModal");
+        showToast("Job started successfully. Timer/visit started.", 2800);
+
+        // Customer ko notification: "Your job has started" — yaha backend se notification jayega.
+        // Demo ke liye direct completion modal open nahi kar rahe, technician jab chahe UI se open karega.
+        // For demo, chalo completion modal bhi dikha dete hain:
+        setTimeout(() => {
+            document.getElementById("billCustomerName").textContent = lastBooking.name;
+            document.getElementById("billServiceName").textContent = lastBooking.serviceName;
+            openModal("jobCompleteModal");
+        }, 800);
+    }
+
+    // HANDLE JOB COMPLETE & BILL
+    function handleJobComplete() {
+        if (!lastBooking || !lastBooking.jobStarted) {
+            showToast("Job not started yet.");
+            return;
+        }
+
+        const workDetails = document.getElementById("billWorkDetails").value.trim();
+        const amount = document.getElementById("billAmount").value.trim();
+        const paymentMode = document.getElementById("billPaymentMode").value.trim();
+
+        if (!workDetails || !amount || !paymentMode) {
+            showToast("Fill work details, amount & payment mode.");
+            return;
+        }
+
+        lastBooking.jobCompleted = true;
+        lastBooking.bill = {
+            workDetails,
+            amount,
+            paymentMode
+        };
+
+        closeModal("jobCompleteModal");
+
+        // Yaha bill ko backend / WhatsApp / Email se customer ko send karo
+        console.log("Bill summary to send:", lastBooking);
+
+        showToast("Job completed. Bill shared with customer digitally.", 3200);
+
+        // Optional: simple alert with bill summary (demo)
+        alert(
+            "Bill Summary (Customer Copy):
+
+" +
+            "Customer: " + lastBooking.name + "
+" +
+            "Service: " + lastBooking.serviceName + "
+" +
+            "Location: " + lastBooking.location + "
+" +
+            "Slot: " + lastBooking.slot + "
+
+" +
+            "Work Done:
+" + workDetails + "
+
+" +
+            "Total Amount: ₹" + amount + "
+" +
+            "Payment Mode: " + paymentMode + "
+
+" +
+            "Thank you for choosing RapidCool Delhi."
+        );
+    }
+
+    // Attach global events
+    document.addEventListener("DOMContentLoaded", () => {
+        renderServices();
+        renderLocations();
+
+        // Open location modal
+        document.getElementById("locationBtn").addEventListener("click", () => {
+            openModal("locationModal");
+        });
+
+        // Dummy login
+        document.getElementById("loginBtn").addEventListener("click", () => {
+            showToast("Login / Technician panel integration coming soon.");
+        });
+
+        // Booking confirm
+        document.getElementById("confirmBookingBtn").addEventListener("click", handleBookingConfirm);
+
+        // Job start by technician
+        document.getElementById("startJobBtn").addEventListener("click", handleJobStart);
+
+        // Job complete & bill
+        document.getElementById("completeJobBtn").addEventListener("click", handleJobComplete);
+
+        // Close modal on [x]
+        document.body.addEventListener("click", (e) => {
+            const closeTarget = e.target.getAttribute("data-close");
+            if (closeTarget) {
+                closeModal(closeTarget);
+            }
+        });
+
+        // Close modal when clicking backdrop
+        ["locationModal", "comingSoonModal", "bookingModal", "jobStartModal", "jobCompleteModal"]
+            .forEach(id => {
+                const backdrop = document.getElementById(id);
+                if (!backdrop) return;
+                backdrop.addEventListener("click", (e) => {
+                    if (e.target === backdrop) {
+                        closeModal(id);
+                    }
+                });
+            });
+
+        // Simple search (front-end filter highlight)
+        document.getElementById("searchBtn").addEventListener("click", () => {
+            const q = document.getElementById("searchInput").value.trim().toLowerCase();
+            if (!q) {
+                showToast("Type a service to search.");
+                return;
+            }
+            const match = servicesData.find(s =>
+                s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q)
+            );
+            if (!match) {
+                showToast("No matching service found.");
+                return;
+            }
+            showToast(`Found: ${match.name}`);
+            // Optionally scroll to card
+        });
+    });
+</script>
+
+</body>
+</html>
